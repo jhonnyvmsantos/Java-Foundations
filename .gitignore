@@ -2,5 +2,6 @@
 .classpath
 .project
 .settings/
-bin/*
-*.class
+
+#Java
+bin/

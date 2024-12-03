@@ -7,7 +7,7 @@ Repositório para armazenar os fundamentos aprendidos do Java, desde o básico a
 
 **All:** Java.
 
-**IDE:** Eclipse.
+**IDE:** Intellij Community.
 
 ## FAQ
 
@@ -22,4 +22,4 @@ Neste repositório, é armazenado os projetos realizados para o aprendizado prá
 Eu sou um Desenvolvedor Full-Stack com formação técnica em Desenvolvimento de Sistemas, através da Etec de Embu. Além de outros cursos, como: Técnicas Administrativas (Básico) e Programação com Arduino.
 
 ## 🛠 Habilidades
-Javascript, TypeScript, Python & C# | ReactJs, React-Native & NodeJs | MySql, MongoDB & FireBase | Git & Github...
+Java, Javascript, TypeScript, Python & C# | ReactJs, React-Native & NodeJs | MySql, MongoDB & FireBase | Git & Github...

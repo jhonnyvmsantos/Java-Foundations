@@ -1,9 +1,10 @@
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Locale.setDefault(Locale.US);
+        Locale.setDefault(Locale.US); //Define como as casas decimais são separadas ("," || ".")
 
         String text = "Random";
         int x = 12;

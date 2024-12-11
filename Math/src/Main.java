@@ -14,7 +14,7 @@ public class Main {
 //        b = Math.sqrt(x); //Raiz quadrada de um número
 //        c = Math.pow(x, 2); //Potencialização de um número
 
-//        System.out.printf("Os valores de a, b e c são, respectivamente: %.2f | %.2f | %.2f", a, b, c);
+//        System.out.printf("Os valores de a, b e c são, respectivamente: %.2f | %.2f | %.2f\n", a, b, c);
 
         //Bhaskara formula
         a = sc.nextDouble();
@@ -25,6 +25,6 @@ public class Main {
         x1 = (-b + Math.sqrt(delta)) / (2 * a);
         x2 = (-b - Math.sqrt(delta)) / (2 * a);
 
-        System.out.printf("Resultado: x1: %.2f | x2: %.2f", x1, x2);
+        System.out.printf("Resultado: x1: %.2f | x2: %.2f\n", x1, x2);
     }
 }

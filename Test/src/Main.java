@@ -23,7 +23,10 @@ public class Main {
 
         switch (z) {
             case 10:
-                System.out.printf("Int: %d\n", x); //Print com formatação ("\n" add quebra de linha)
+                while (x > 0) {
+                    System.out.printf("Int: %d\n", x); //Print com formatação ("\n" add quebra de linha)
+                    x--;
+                }
                 break;
             case 5:
                 System.out.printf("Double: %.2f number%n", y); //"%n" (também) add quebra de linha

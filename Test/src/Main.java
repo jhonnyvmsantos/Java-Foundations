@@ -10,7 +10,7 @@ public class Main {
         String text = "Random";
         int x = 12;
         int z = sc.nextInt();
-        double y = (z >= 0) ? 122.6453 : 6453.122; //Expressão de condição ternária
+        double y = (z != 5) ? 122.6453 : 6453.122; //Expressão de condição ternária
 
         if (z > 0) {
             System.out.print("Hello "); //Print sem quebra de linha
@@ -25,11 +25,13 @@ public class Main {
             case 10:
                 while (x > 0) {
                     System.out.printf("Int: %d\n", x); //Print com formatação ("\n" add quebra de linha)
-                    x--;
+                    x -= 2;
                 }
                 break;
             case 5:
-                System.out.printf("Double: %.2f number%n", y); //"%n" (também) add quebra de linha
+                for (double i = 0; i <= y; i += y / 4) {
+                    System.out.printf("Double: %.2f number%n", i); //"%n" (também) add quebra de linha
+                }
                 break;
             default:
                 //If sem chaves a seguir

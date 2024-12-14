@@ -30,12 +30,15 @@ public class Main {
                 break;
             case 5:
                 for (double i = 0; i <= y; i += y / 4) {
-                    System.out.printf("Double: %.2f number%n", i); //"%n" (também) add quebra de linha
+                    System.out.printf("Double: %.2f number%n\n", i); //"%n" (também) add quebra de linha
                 }
                 break;
             default:
-                //If sem chaves a seguir
-                if (z <= 0) System.out.printf("%s Number is %d and %.4f", text, x, y); //Texto formatado com variaveis incluidas
+                do {
+                    y -= 1 + (y / 2);
+                    //If sem chaves a seguir
+                    if (z <= 0) System.out.printf("%s Number is %d and %.4f\n", text, x, y); //Texto formatado com variaveis incluidas
+                } while (y > 0);
                 break;
         }
 

@@ -19,7 +19,7 @@ public class Program {
             System.out.println("World!"); //Print com quebra de linha
         } else if (z == 0 || z == 12) {
             //BitWiser funciona ao transformar os elementos em bit(s) e comparalos de acordo com a operação
-            System.out.println(y & x); //BitWise com operador "&"
+            System.out.println(z & x); //BitWise com operador "&"
         } else {
             System.out.println((z == -1) ? z | x : x ^ z); //BitWise com operador "|" ou "^" (Ou-Exclusivo)
             //Ou-Exclusivo só dá "Verdadeiro" (1) quando APENAS 1 dos bits comparados for verdadeiro, não os dois

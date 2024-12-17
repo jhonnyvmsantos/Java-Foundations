@@ -1,24 +1,28 @@
+package course;
+
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+public class Program {
 
     public static void main(String[] args) {
         Locale.setDefault(Locale.US); //Define como as casas decimais são separadas ("," || ".")
         Scanner sc = new Scanner(System.in);
 
         String text = "Random";
-        int x = 12;
+        int x = 0b1100;
         int z = sc.nextInt();
         double y = (z != 5) ? 122.6453 : 6453.122; //Expressão de condição ternária
 
-        if (z > 0) {
+        if (z > 0 && z != 12) {
             System.out.print("Hello "); //Print sem quebra de linha
             System.out.println("World!"); //Print com quebra de linha
-        } else if (z == 0) {
-            System.out.println("Hello && World!");
+        } else if (z == 0 || z == 12) {
+            //BitWiser funciona ao transformar os elementos em bit(s) e comparalos de acordo com a operação
+            System.out.println(x & z); //BitWise com operador "&"
         } else {
-            System.out.println("World! && Hello");
+            System.out.println((z == -1) ? z | x : x ^ z); //BitWise com operador "|" ou "^" (Ou-Exclusivo)
+            //Ou-Exclusivo só dá "Verdadeiro" (1) quando APENAS 1 dos bits comparados for verdadeiro, não os dois
         }
 
         switch (z) {

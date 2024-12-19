@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class Program {
 
-    public static void main(String[] args) {
+    //"static" = "membros de classe". Não precisam de objetos para serem chamados, podendo ser chamado a partir do proprio nome da classe...
+    public static void main(String[] args) { //classes estaticas não podem ser instanciadas
 
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);

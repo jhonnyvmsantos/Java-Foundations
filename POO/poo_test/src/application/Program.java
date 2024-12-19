@@ -19,20 +19,20 @@ public class Program {
         x.a = sc.nextDouble();
         x.b = sc.nextDouble();
         x.c = sc.nextDouble();
-        x.p = (x.a + x.b + x.c) / 2;
-        x.area = Math.sqrt(x.p * (x.p - x.a) * (x.p - x.b) * (x.p - x.c));
+
+        double areaX = x.area();
 
         System.out.println("Enter the measures (3) of triangle Y:");
         y.a = sc.nextDouble();
         y.b = sc.nextDouble();
         y.c = sc.nextDouble();
-        y.p = (y.a + y.b + y.c) / 2;
-        y.area = Math.sqrt(y.p * (y.p - y.a) * (y.p - y.b) * (y.p - y.c));
 
-        System.out.printf("Triangle X area: %.4f\n", x.area);
-        System.out.printf("Triangle Y area: %.4f\n", y.area);
+        double areaY = y.area();
 
-        System.out.printf("Larger area: %s", x.area > y.area ? "X" : "Y");
+        System.out.printf("Triangle X area: %.4f\n", areaX);
+        System.out.printf("Triangle Y area: %.4f\n", areaY);
+
+        System.out.printf("Larger area: %s", areaX > areaY ? "X" : "Y");
 
         sc.close();
     }

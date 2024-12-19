@@ -11,8 +11,9 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        Triangle x, y;
-        x = new Triangle();
+        //Toda classe é uma subclasse da classe Object, herdando alguns metodos dela, como: equals, toString, getClass...
+        Triangle x, y; //Criando dois objetos de uma classe
+        x = new Triangle(); //Criando uma instância da classe
         y = new Triangle();
 
         System.out.println("Enter the measures (3) of triangle X:");

@@ -26,6 +26,9 @@ public class Program {
 
         Product product = new Product(name, price, quantity); //Enviando valores para o constructor
 
+//        product.setName("Computer"); //Executando a operação de encapsulamento p/alterar uma variavel
+//        System.out.println(product.getName()); //Executando a operação de encapsulamento p/chamar o valor de uma variavel
+
 //        System.out.println(product.toString()); //Transformando o objeto em String
 
         //Por padrão, o objeto, ao ser exibido, é transformado em String, forçando a execução do método "toString"

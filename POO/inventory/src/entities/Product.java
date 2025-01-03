@@ -6,11 +6,22 @@ public class Product {
     public double price; //Valor padrão: 0.0
     public int quantity; //Valor padrão: 0
 
+    public Product() {
+        //Definindo um "Constructor" padrão para caso não queira alocar os parametros no momento da instanciação do obj
+    }
+
     //"Constructor" é uma operação especial da classe, executada no momento da instanciação do objeto
-    public Product(String name, double price, int quantity) { //Definindo valores a serem, obrigatoriamente, alocados
+    public Product(String name, double price, int quantity) { //Definindo parametros a serem, obrigatoriamente, alocados
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    //"Sobrecarga" de um constructor (mesma operação, mas com parametros diferentes)
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+//        quantity = 0; //Opcional, pois ele já inicia com valor 0
     }
 
     public double totalValueInStock() {

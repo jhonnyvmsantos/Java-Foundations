@@ -1,16 +1,19 @@
 package entities;
 
-/* Padrão p/organização das classes:
+/*
+    Padrão p/organização das classes:
         1. Variaveis da(o) classe/objeto
         2. Constructor da(o) classe/objeto
-        3. Operações/Métodos de encapsulamento
+        3. Operações/Métodos de encapsulamento (getters e setters)
         4. Métodos da(o) classe/objeto
 */
 
 public class Product {
 
+    //Caso não haja prefixo (public, private...), a var fica disponivel (Apenas) p/outras classes do mesmo package acessa-la
+    String name; //Valor padrão: null
+
     //Tornando o atributo inacessivel, diretamente, por outras classes
-    private String name; //Valor padrão: null
     private double price; //Valor padrão: 0.0
     private int quantity; //Valor padrão: 0
     //Muito utilizado para o encapsulamento (Tornando segura a execução de uma classe e seus metodos para o usuario)
@@ -18,9 +21,9 @@ public class Product {
     // -----------------------------------------------------------------------------------------------------------
 
     //"Constructor" é uma operação especial da classe, executada no momento da instanciação do objeto
-//    public Product() { //É possivel ter varios construtores...
-//        //Definindo um "Constructor" padrão para caso não queira alocar os parametros no momento da instanciação do obj
-//    }
+    public Product() { //É possivel ter varios construtores...
+        //Definindo um "Constructor" padrão para caso não queira alocar os parametros no momento da instanciação do obj
+    }
 
     //Definindo parametros a serem, obrigatoriamente, alocados durante a instanciação
     public Product(String name, double price, int quantity) {

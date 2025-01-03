@@ -22,12 +22,11 @@ public class Program {
         String holder = sc.nextLine();
 
         System.out.print("Enter initial deposit value (y/n)?: ");
-        String initial = sc.next();
+        char initial = sc.next().charAt(0);
 
-        if (initial.equals("y") || initial.equals("yes")) {
+        if (initial == 'y') {
             System.out.print("Enter initial deposit value: ");
-            double balance = sc.nextDouble();
-            account = new Account(number, holder, balance);
+            account = new Account(number, holder, sc.nextDouble());
         } else {
             account = new Account(number, holder);
         }
@@ -41,5 +40,7 @@ public class Program {
         System.out.print("Enter a withdraw value: ");
         account.balanceWithdraw(sc.nextDouble());
         System.out.println("Updated account data:\n" + account);
+
+        sc.close();
     }
 }

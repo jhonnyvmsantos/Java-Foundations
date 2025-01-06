@@ -42,6 +42,37 @@ public class Program {
             System.out.println(vect[i]);
         }
 
+        System.out.println("Informações gerais:");
+        double[] info = new double[3];
+        for (int i = 0; i < vect.length; i++) {
+            info[0] += vect[i].getAge();
+            info[1] += vect[i].getHeight();
+            info[2] += vect[i].getWeight();
+        }
+
+        System.out.println("Média de Idade: " + info[0]);
+        System.out.println("Média de Altura: " + info[1]);
+        System.out.println("Média de Peso: " + info[2]);
+
+        final double per = 100.0 / vect.length;
+        int qtd = 0;
+        String[] underage = new String[vect.length];
+
+        for (int i = 0; i < vect.length; i++) {
+            if (vect[i].getAge() < 18) {
+                underage[qtd] = vect[i].getName();
+                qtd++;
+            }
+        }
+
+        System.out.println("Menores de idade:");
+        for (int i = 0; i < underage.length; i++) {
+            if (underage[i] != null) {
+                System.out.println("    - " + underage[i]);
+            }
+        }
+        System.out.println("Percentual: " + String.format("%.2f", per * qtd) + "%");
+
         sc.close();
     }
 }

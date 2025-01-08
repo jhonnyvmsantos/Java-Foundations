@@ -11,9 +11,9 @@ public class Program {
         int x = 102;
 
 //        Object obj = x; //"Boxing" (Conversão de um obj tipo primitivo valor para tipo referencial)
-        Integer obj = null; //"Wrapper Class" (Tipo refencial para um tipo primitivo. Ex: Boolean, Char, Number...)
+        Integer obj; //"Wrapper Class" (Tipo refencial para um tipo primitivo. Ex: Boolean, Char, Number...)
+        //Wrapper Class são classes, sendo, normalmente, usadas no lugar de tipos primitivos (Iniciam "null")
         obj = x;
-        //Wrapper Class são classes, sendo, normalmente, usadas no lugar de tipos primitivos (Podem aceitar valores nulos)
 
         //"Unboxing" (Conversão do tipo referêncial pro tipo valor)
 //        int y = (int) obj - 3; //Casting pro tipo INT

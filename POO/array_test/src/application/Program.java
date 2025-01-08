@@ -53,8 +53,9 @@ public class Program {
 
         double sum = 0;
 
-        for (int i = 0; i < vect.length; i++) {
-            sum += vect[i].setPrice();
+        //Laço "For Each" (Percorre um vetor por inteiro)
+        for (Product obj : vect) {
+            sum += obj.setPrice();
         }
 
         System.out.printf("Average price: %.2f", sum / vect.length);

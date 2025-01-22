@@ -15,6 +15,7 @@ public class Program {
 
         System.out.print("Digite o tamanho do vetor: ");
         int n = sc.nextInt();
+
         //Vetores tem um acesso imediato ao elemento referido...
         double[] vect = new double[n]; //Criação de um vetor (Utilizando "[]")
         //Todo vetor precisa iniciar com um tamanho fixo, embora tenha "jeitos" (dificeis) de inserir ou deletar algo

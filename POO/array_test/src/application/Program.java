@@ -17,10 +17,10 @@ public class Program {
         int nCount = 0;
 
         //Método com "for padrão" para percorrer uma matriz
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.println("Enter three (3) integers: ");
 
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 arr[i][j] = sc.nextInt();
 
                 if (arr[i][j] < 0) {
@@ -29,12 +29,12 @@ public class Program {
             }
         }
 
+        System.out.printf("Quantity of negative numbers: %d\n", nCount);
+
         System.out.println("Main diagonal: ");
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i][i] + " ");
         }
-
-        System.out.printf("Quantity of negative numbers: %d", nCount);
 
         sc.close();
     }

@@ -3,6 +3,7 @@ package application;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Program {
@@ -10,6 +11,11 @@ public class Program {
     public static void main(String[] args) {
 
         Scanner sc =  new Scanner(System.in);
+
+        //Método para gerar um obj "date" através de uma data em formato UTC...
+        Date test = Date.from(Instant.parse("2018-06-25T15:42:07Z"));
+        System.out.println(test);
+        //OBS: HÁ DIFERENÇA NO HORÁRIO IMPRESSO POIS A CLASSE "Date" CONVERTE A DATA PARA A TIMEZONE LOCAL
 
         //"DateTimeFormatter" serve para definir padrões customizados de data/hora
         DateTimeFormatter dFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy"); //Data customizada
@@ -19,6 +25,8 @@ public class Program {
         //"WithZone" converte a data/hora equivalente à timezone alocada e "ZoneId.systemDefault()" pega a timezone local
         DateTimeFormatter zFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
         //Para converter do horario global GMT (UTC), necessita especificar uma timezone especifica
+
+//        Date dNow = new Date(); //Instancia da classe Date (Old School) do instante atual...
 
         //Objetos data/hora são objetos com valores imutáveis (constantes)
         LocalDate dLocal = LocalDate.now(); //Traz apenas a data local

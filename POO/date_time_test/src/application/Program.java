@@ -18,12 +18,12 @@ public class Program {
 
         //"WithZone" converte a data/hora equivalente à timezone alocada e "ZoneId.systemDefault()" pega a timezone local
         DateTimeFormatter zFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
-        //Para converter do horario global (Instant - UTC || GMT), necessita especificar uma timezone especifica
+        //Para converter do horario global GMT (UTC), necessita especificar uma timezone especifica
 
         //Objetos data/hora são objetos com valores imutáveis (constantes)
         LocalDate dLocal = LocalDate.now(); //Traz apenas a data local
         LocalDateTime dtLocal = LocalDateTime.now(); //Traz a data/hora local
-        Instant dtGlobal = Instant.now(); //Traz a data/hora local convertida para o de londres (Global - UTC || GMT)
+        Instant dtGlobal = Instant.now(); //Traz a data/hora local convertida para a data/hora global GMT (UTC)
 
         //Constante de um obj "date" convertida de uma data customizada
         final LocalDate fDate = LocalDate.parse("09/08/2019", dFormat);
@@ -58,7 +58,7 @@ public class Program {
 //        dtLocal = LocalDateTime.parse("2024-01-24T18:00:00");
 //        dtGlobal = Instant.parse("2020-04-02T12:00:10Z");
 
-        //Transformando do horario de São Paulo (-3:00) para o de Londres
+        //Transformando do horario de São Paulo (TZ: -3:00) para o global
 //        dtGlobal = Instant.parse("2020-04-02T12:00:10-03:00");
 
         //Convetendo para obj "date" atraves de um formato customizado
@@ -68,11 +68,11 @@ public class Program {
         //Objeto está sendo automáticamente transformado em String pelo método "toString"...
         System.out.println("Data Local: " + dLocal);
         System.out.println("Data/Hora Local: " + dtLocal);
-        System.out.println("Data/Hora Local -> Londres: " + dtGlobal);
+        System.out.println("Data/Hora Local -> Global: " + dtGlobal);
 
         //Transforma o horario de londres na timezone local (Pode especificar outra timezone...)
-        System.out.println("Data/Hora Londres -> Local: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.systemDefault()));
-        System.out.println("Data/Hora Londres -> Tokyo: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.of("Asia/Tokyo")));
+        System.out.println("Data/Hora Global -> Local: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.systemDefault()));
+        System.out.println("Data/Hora Global -> Tokyo: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.of("Asia/Tokyo")));
 
         //Método para subtrair uma qtd de dias de uma data
         System.out.println("Data/Hora Local (-7 dias): " + dLocal.minusDays(7));
@@ -91,7 +91,7 @@ public class Program {
 
         //Transformando obj "date" para um formato customizado...
 //        System.out.println("Data Local: " + dLocal.format(dFormat));
-//        System.out.println("Data/Hora Londres -> Local: " + zFormat.format(dtGlobal));
+//        System.out.println("Data/Hora Global -> Local: " + zFormat.format(dtGlobal));
 
 
 //        System.out.print("Trazer a lista de TimeZone's? ");

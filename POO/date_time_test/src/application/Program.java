@@ -60,14 +60,15 @@ public class Program {
         //Além dos métodos do "LocalDate", o obj "LocalDateTime" contém os seguintes metodos:
 //        System.out.println(dtLocal.getHour());
 //        System.out.println(dtLocal.getMinute());
+//        System.out.println(dtLocal.getSecond());
 
         //Converter texto (Formato ISO 8601) para um objeto "date"...
 //        dLocal = LocalDate.parse("2022-01-11");
 //        dtLocal = LocalDateTime.parse("2024-01-24T18:00:00");
 //        dtGlobal = Instant.parse("2020-04-02T12:00:10Z");
 
-        //Transformando do horario de São Paulo (TZ: -3:00) para o global
-//        dtGlobal = Instant.parse("2020-04-02T12:00:10-03:00");
+        //Convertendo um texto (Formato ISO 8601) com uma timezone especificada...
+//        dtGlobal = Instant.parse("2020-04-02T12:00:10+03:00");
 
         //Convetendo para obj "date" atraves de um formato customizado
 //        dLocal = LocalDate.parse("11/02/2012", dFormat);
@@ -78,9 +79,13 @@ public class Program {
         System.out.println("Data/Hora Local: " + dtLocal);
         System.out.println("Data/Hora Local -> Global: " + dtGlobal);
 
-        //Transforma o horario de londres na timezone local (Pode especificar outra timezone...)
+        //Transforma o horario global na timezone local (Pode especificar outra timezone...)
         System.out.println("Data/Hora Global -> Local: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.systemDefault()));
         System.out.println("Data/Hora Global -> Tokyo: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.of("Asia/Tokyo")));
+
+        //Transformando obj "date" para um formato customizado...
+//        System.out.println("Data Local: " + dLocal.format(dFormat));
+        System.out.println("Data/Hora Global -> Local (Custom): " + zFormat.format(dtGlobal));
 
         //Método para subtrair uma qtd de dias de uma data
         System.out.println("Data/Hora Local (-7 dias): " + dLocal.minusDays(7));
@@ -97,16 +102,11 @@ public class Program {
         System.out.println("Diferença em dias (Data/Hora): " + dtPast.toDays());
         System.out.println("Diferença em dias (Data): " + dPast.toDays());
 
-        //Transformando obj "date" para um formato customizado...
-//        System.out.println("Data Local: " + dLocal.format(dFormat));
-//        System.out.println("Data/Hora Global -> Local: " + zFormat.format(dtGlobal));
-
-
-//        System.out.print("Trazer a lista de TimeZone's? ");
-//        char verification = sc.next().charAt(0);
-//        if (verification == 'y') {
-//            zone_list();
-//        }
+        System.out.print("Trazer a lista de TimeZone's? ");
+        char verification = sc.next().charAt(0);
+        if (verification == 'y') {
+            zone_list();
+        }
 
         sc.close();
 

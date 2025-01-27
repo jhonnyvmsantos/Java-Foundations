@@ -1,10 +1,8 @@
 package application;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Program {
@@ -26,6 +24,21 @@ public class Program {
         LocalDate dLocal = LocalDate.now(); //Traz apenas a data local
         LocalDateTime dtLocal = LocalDateTime.now(); //Traz a data/hora local
         Instant dtGlobal = Instant.now(); //Traz a data/hora local convertida para o de londres (Global - UTC || GMT)
+
+        //Constante de um obj "date" convertida de uma data customizada
+        final LocalDate fDate = LocalDate.parse("09/08/2019", dFormat);
+//        System.out.println("Data constante: " + fDate);
+
+        final LocalDateTime fDateTime = LocalDateTime.parse("09/08/2006 00:00", dtFormat);
+//        System.out.println("Data/Hora constante: " + fDateTime);
+
+        //Classe com foco em calculo entre diferentes datas
+        Duration dtPast = Duration.between(fDateTime, dtLocal);
+        //OBS: O OBJ "Instant" FUNCIONA IGUAL AO OBJ "LocalDateTime"
+
+        //MétodoS para converter um "LocalDate" para um "LocalDateTime" ao adicionar "tempo"
+        Duration dPast = Duration.between(fDate.atStartOfDay(), dLocal.atTime(0, 0));
+        //OBS: A CLASSE "DURATION" ACEITA APENAS OBJ'S "LocalDateTime", ENT NECESSITA CONVERTER O OBJ "LocalDate"...
 
         //Método para conseguir um obj "date" a partir de dados isolados
 //        dLocal = LocalDate.of(2022, 7, 10);
@@ -60,6 +73,21 @@ public class Program {
         //Transforma o horario de londres na timezone local (Pode especificar outra timezone...)
         System.out.println("Data/Hora Londres -> Local: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.systemDefault()));
         System.out.println("Data/Hora Londres -> Tokyo: " + LocalDateTime.ofInstant(dtGlobal, ZoneId.of("Asia/Tokyo")));
+
+        //Método para subtrair uma qtd de dias de uma data
+        System.out.println("Data/Hora Local (-7 dias): " + dLocal.minusDays(7));
+        //Método para adicionar uma qtd de semanas em uma data
+        System.out.println("Data/Hora Local (+5 semanas): " + dLocal.plusWeeks(5));
+        //OBS: COM MÉTODOS "plus" E "minus", É POSSÍVEL MANIPULAR OS DADOS DE UM OBJ "date" E REALIZAR CALCULOS
+
+        //Instant tem seus dados (date) manipulados de forma diferente... "ChronoUnit" permite escolher o dado a ser manipulado
+        System.out.println("Data/Hora Global (+7 dias): " + dtGlobal.plus(7, ChronoUnit.DAYS));
+//        System.out.println("Data/Hora Global (-2 anos): " + dtGlobal.minus(2, ChronoUnit.YEARS));
+        //OBS: OS MÉTODOS "plus" E "minus", EM INSTANT, NÃO SUPORTAM UNIDADES DE MEDIDAS ACIMA DE DIAS...
+
+        //Método para contar os dias entre uma data e outra
+        System.out.println("Diferença em dias (Data/Hora): " + dtPast.toDays());
+        System.out.println("Diferença em dias (Data): " + dPast.toDays());
 
         //Transformando obj "date" para um formato customizado...
 //        System.out.println("Data Local: " + dLocal.format(dFormat));

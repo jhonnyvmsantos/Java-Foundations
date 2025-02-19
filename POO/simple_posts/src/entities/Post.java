@@ -1,10 +1,14 @@
 package entities;
 
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Post {
+    private static final DateTimeFormatter dtFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss").withZone(ZoneId.systemDefault());
+
     private Instant moment;
     private String title;
     private String content;
@@ -66,4 +70,22 @@ public class Post {
         comments.remove(comment);
     }
 
+    public String toString() {
+        //Tipo utilizado para construir strings, principalmente as maiores...
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.title).append("\n");
+        sb.append(this.likes).append(" Likes - ").append(dtFormat.format(this.moment)).append("\n");
+        sb.append(this.content).append("\n");
+
+        if (!comments.isEmpty()) {
+            sb.append("----------------------------------------------------").append("\n");
+            sb.append("comments:").append("\n");
+
+            for (Comment element : comments) {
+                sb.append(element.getText()).append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
 }

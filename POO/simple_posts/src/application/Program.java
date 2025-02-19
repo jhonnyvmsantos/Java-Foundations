@@ -17,20 +17,10 @@ public class Program {
             count++;
             Post post = addPost(sc, count);
 
+            System.out.println("----------------------------------------------------");
+
             System.out.printf("Viewing the #%d post...\n", count);
-            System.out.println(post.getTitle());
-            System.out.printf("Likes: %d - %s\n", post.getLikes(), post.getMoment());
-            System.out.println(post.getContent());
-
-            if (!post.getComments().isEmpty()) {
-                System.out.println("----------------------------------------------------");
-
-                System.out.println("comments:");
-
-                for (Comment element : post.getComments()) {
-                    System.out.println(element.getText());
-                }
-            }
+            System.out.println(post);
 
             System.out.print("Want to keep adding posts (n/y)? ");
             next = sc.next().charAt(0);

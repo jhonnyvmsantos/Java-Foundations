@@ -24,8 +24,20 @@ public class Program {
 
         System.out.println(x + " | " + y);
 
-        //Maneira de selecionar uma constante do tipo enum.
+        //Maneira de selecionar uma constante do tipo enum
         System.out.println(EnumStatus.THE_ONE_STATUS);
+
+        //Forma de conerter o tipo enum para o string;
+        String second_test = String.valueOf(EnumStatus.SECOND_STATUS);
+        System.out.println(second_test);
+
+        //Instanciando um tipo enum já especificado através de uma string...
+        EnumStatus third_test = EnumStatus.valueOf("THIRD_STATUS");
+        System.out.println(third_test);
+
+        //Instanciando um tipo enum já especificado
+        EnumStatus final_test = EnumStatus.FINAL_STATUS;
+        System.out.println(final_test);
 
         System.out.print("Executar outra função do projeto (y/n)? ");
         char verification = sc.next().charAt(0);

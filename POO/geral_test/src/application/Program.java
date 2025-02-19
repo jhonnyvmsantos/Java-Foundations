@@ -1,5 +1,7 @@
 package application;
 
+import entities.EnumStatus;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -21,6 +23,9 @@ public class Program {
         int y = obj - 3; //(Utilizando Wrapper Class ou Boxing)
 
         System.out.println(x + " | " + y);
+
+        //Maneira de selecionar uma constante do tipo enum.
+        System.out.println(EnumStatus.THE_ONE_STATUS);
 
         System.out.print("Executar outra função do projeto (y/n)? ");
         char verification = sc.next().charAt(0);

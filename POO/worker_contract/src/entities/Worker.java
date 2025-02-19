@@ -58,6 +58,10 @@ public class Worker {
         this.department = department;
     }
 
+    public List<HourContract> getContracts() {
+        return contracts;
+    }
+
     public void addContract(HourContract contract) {
         this.contracts.add(contract);
     }

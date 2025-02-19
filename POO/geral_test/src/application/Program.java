@@ -1,6 +1,6 @@
 package application;
 
-import entities.EnumStatus;
+import entities.enums.EnumStatus;
 
 import java.util.ArrayList;
 import java.util.List;

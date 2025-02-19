@@ -1,4 +1,4 @@
-package entities;
+package entities.enums;
 
 //UTILIZADO PARA DEFINIR "TIPOS" ESPECIFICOS DE CONSTANTES RELACIONADAS
 public enum EnumStatus {

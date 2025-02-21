@@ -1,9 +1,16 @@
 package entities;
 
-public class Account {
+public class Account { //"Account" é chamada de "superclass", por ser uma "classe base" (generica)
+    //Ao compor duas classes, tem-se uma associação entre classes
+    //OBS: Um objeto criado a partir de uma subclasse n mantém essa associação, apenas é construido com os mesmos atributos e operações de ambas as classe...
+
     private Integer number;
     private String holder;
-    private Double balance;
+    //private torna o atributo manipulavel APENAS pela propria classe...
+//    private Double balance;
+
+    //private torna o atributo manipulavel pela propria classe, classes do mesmo pacote e classes "herdeiras"...
+    protected Double balance;
 
     public Account() {
         //Vazio...

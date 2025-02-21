@@ -1,7 +1,8 @@
 package entities;
 
 //"Extends" método que torna possivel "herdar" atributos e operações de outras classes...
-public class BusinnesAcount extends Account{
+public class BusinnesAcount extends Account{ //"BusinnesAcount" é chamada de "subclass", por derivar de uma "superclass" (Account), tornando-se uma classe "especializada"
+    private final Integer fee = 10;
     private Double loanLimit;
 
     public BusinnesAcount() {
@@ -23,7 +24,8 @@ public class BusinnesAcount extends Account{
 
     public void loan(Double amount) {
         if (amount <= loanLimit) {
-            deposit(amount);
+            //Utilizando o prefixo "protected" é possivel acessar o atributo da superclass ao herda-la
+            this.balance += amount - this.fee;
         }
     }
 }

@@ -12,14 +12,15 @@ public class Post {
     private Instant moment;
     private String title;
     private String content;
-    private int likes;
+    private Integer likes;
 
     private final List<Comment> comments = new ArrayList<>();
 
     public Post() {
+        //Vazio...
     }
 
-    public Post(Instant moment, String title, String content, int likes) {
+    public Post(Instant moment, String title, String content, Integer likes) {
         this.moment = moment;
         this.title = title;
         this.content = content;
@@ -50,11 +51,11 @@ public class Post {
         this.content = content;
     }
 
-    public int getLikes() {
+    public Integer getLikes() {
         return likes;
     }
 
-    public void setLikes(int likes) {
+    public void setLikes(Integer likes) {
         this.likes = likes;
     }
 

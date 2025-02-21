@@ -42,7 +42,7 @@ public class Program {
         String content = sc.nextLine();
 
         System.out.print("Likes (Quantity): ");
-        int likes = sc.nextInt();
+        Integer likes = sc.nextInt();
 
         Post post = new Post(moment, title, content, likes);
 

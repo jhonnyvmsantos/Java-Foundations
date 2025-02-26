@@ -5,12 +5,20 @@ import entities.BusinnesAcount;
 import entities.SavingsAccount;
 
 public class Program {
+
     public static void main(String[] args) {
 
         //OBS: Toda subclass É UMA superclass, mas com alguns "extras" ou modificações
 
-        Account acc = new Account(1001, "Alex", 0.0);
+        Account acc = new Account(1001, "Alex", 1800.0);
+        acc.withdraw(200.0);
+        System.out.println(acc.getBalance());
+
         BusinnesAcount bacc = new BusinnesAcount(1002, "Maria", 0.0, 500.0);
+
+        SavingsAccount sacc = new SavingsAccount(1005, "Julio", 300.0, 0.02);
+        sacc.withdraw(100.0);
+        System.out.println(sacc.getBalance());
 
         Account acc01 = bacc; //"Upcasting" - Ato de atribuir um objeto (subclass) à um outro objeto (superclass)
 //        acc01.loan(100.0); //Não funciona pois a variavel do tipo Account não contém tal metodo.
@@ -24,17 +32,17 @@ public class Program {
         //Embora não seja reconhecido como um erro, o erro ocorre durante a execução.
 //        BusinnesAcount acc05  = (BusinnesAcount)acc03;
 
-        //Veririfca se tal objeto é uma instancia de tal classe
-        if (acc03 instanceof BusinnesAcount) {
-            BusinnesAcount acc05  = (BusinnesAcount)acc03;
-            acc05.loan(200.0);
-            System.out.println("Loan!");
-        }
-
-        if (acc03 instanceof SavingsAccount) {
-            SavingsAccount acc05  = (SavingsAccount)acc03;
-            acc05.updateBalance();
-            System.out.println("Update!");
-        }
+        //Verifica se tal objeto é uma instancia de determinada classe
+//        if (acc03 instanceof BusinnesAcount) { //FALSE
+//            BusinnesAcount acc05  = (BusinnesAcount)acc03;
+//            acc05.loan(200.0);
+//            System.out.println("Loan!");
+//        }
+//
+//        if (acc03 instanceof SavingsAccount) { //TRUE
+//            SavingsAccount acc05  = (SavingsAccount)acc03;
+//            acc05.updateBalance();
+//            System.out.println("Update!");
+//        }
     }
 }

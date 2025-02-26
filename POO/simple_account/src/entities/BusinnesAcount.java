@@ -28,4 +28,16 @@ public class BusinnesAcount extends Account{ //"BusinnesAcount" é chamada de "s
             this.balance += amount - this.fee;
         }
     }
+
+    //OBS: Uma boa pratica é impedir sobreposições multiplas, utilizando o prefixo "final" numa sobreposição
+    @Override
+    public final void withdraw(Double amount) { //Adicionando uma logica a um método "sobreposto"
+        super.withdraw(amount); //Executando determinado método da superclass
+        this.balance -= 2.0;
+    }
+
+    //OBS: Impossivel sobrepor um metodo determinado como "final"
+//    public void deposit(Double amount) {
+//        this.balance += amount + 999;
+//    }
 }

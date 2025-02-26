@@ -47,7 +47,7 @@ public class Account { //"Account" é chamada de "superclass", por ser uma "clas
         this.balance -= (amount + fee);
     }
 
-    public void deposit(Double amount) {
+    public final void deposit(Double amount) {//prefixo "final" torna impossivel de sobrepor tal metodo
         this.balance += amount;
     }
 }

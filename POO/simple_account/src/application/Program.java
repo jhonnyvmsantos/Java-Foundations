@@ -25,7 +25,14 @@ public class Program {
         Account acc01 = bacc; //"Upcasting" - Ato de atribuir um objeto (subclass) à um outro objeto (superclass)
 //        acc01.loan(100.0); //Não funciona pois a variavel do tipo Account não contém tal metodo.
         Account acc02 = new BusinnesAcount(1003, "Leo", 0.0, 800.0);
-        Account acc03 = new SavingsAccount(1004, "Anna", 0.0, 0.1);
+        Account acc03 = new SavingsAccount(1004, "Anna", 1600.0, 0.1);
+
+        //"Polimorfismo" - Quando varias variaveis do mesmo tipo atuam de forma diferente a depender da classe instanciada
+        acc.withdraw(50.0); //Operação normal
+        acc03.withdraw(50.0); //Operação que sofreu sobreposição
+        //O objeto "acc03" é uma instancia diferente da instancia do objeto "acc", embora sejam o mesmo tipo
+        System.out.println(acc.getBalance() + " | " + acc03.getBalance());
+        //A operação que sofreu sobreposição no obj acc03, manterá sua logica sobreescrita, atuando de forma diferente do obj acc
 
         BusinnesAcount acc04 = (BusinnesAcount)acc02; // "Downcasting" - Inverso de upcasting
         //OBS: O compilador reconhece como "Erro", então é preciso forçar a conversão atraves de um "casting manual"

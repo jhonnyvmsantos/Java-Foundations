@@ -28,7 +28,6 @@ public class OutsourceEmployee extends Employee{
 
     @Override
     public Double payment() {
-        Double salary = super.payment();
-        return salary + (this.additionalCharge * this.multiplayer);
+        return super.payment() + (this.additionalCharge * this.multiplayer);
     }
 }

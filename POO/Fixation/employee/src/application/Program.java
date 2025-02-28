@@ -17,7 +17,6 @@ public class Program {
 
         List<Employee> employees = new ArrayList<>();
 
-//        System.out.println();
         System.out.print("Enter the number of employees: ");
         int number = sc.nextInt();
 

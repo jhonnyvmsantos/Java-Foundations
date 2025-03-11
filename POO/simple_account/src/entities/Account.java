@@ -1,5 +1,7 @@
 package entities;
 
+//o prefixo "abstract" impede de uma classe ser instanciada, é uma forma de garantir uma herança total APENAS
+//public abstract class Account {
 public class Account { //"Account" é chamada de "superclass", por ser uma "classe base" (generica)
     //Ao compor duas classes, tem-se uma associação entre classes
     //OBS: Um objeto criado a partir de uma subclasse n mantém essa associação, apenas é construido com as mesmas caracteristicas de ambas as classe...

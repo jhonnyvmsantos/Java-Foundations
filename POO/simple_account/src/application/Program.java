@@ -8,6 +8,7 @@ public class Program {
 
     public static void main(String[] args) {
 
+        //OBS: Uma "abstract class" não pode ser instanciada
         //OBS: Toda subclass É UMA superclass, mas com alguns "extras" ou modificações
 
         Account acc = new Account(1001, "Alex", 1800.0);

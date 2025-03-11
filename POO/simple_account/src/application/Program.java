@@ -4,6 +4,9 @@ import entities.Account;
 import entities.BusinnesAcount;
 import entities.SavingsAccount;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Program {
 
     public static void main(String[] args) {
@@ -54,5 +57,29 @@ public class Program {
 //            acc05.updateBalance();
 //            System.out.println("Update!");
 //        }
+
+        //Utilizando de um array contendo a super classe, abstrata ou não, das suas respectivas subclasses
+        List<Account> list = new ArrayList<>(); //Torna-se possivel guardar objetos instranciados de diferentes subclasses
+        list.add(acc); //Tipo "Account"
+        list.add(bacc); //Tipo "Business Account"
+        list.add(sacc); //Tipo "Savings Account"
+
+        double sum = 0.0;
+
+        System.out.println("----------------------------------------------------------------------------------------");
+        for (Account e : list) {
+            double balance = e.getBalance();
+            sum += balance;
+
+            if (e instanceof SavingsAccount) {
+                System.out.println("Savings Account type balance: " + String.format("%.2f", balance));
+            } else if (e instanceof BusinnesAcount) {
+                System.out.println("Business Account type balance: " + String.format("%.2f", balance));
+            } else {
+                System.out.println("Account type balance: " + String.format("%.2f", balance));
+            }
+        }
+
+        System.out.println("Total balance: " + String.format("%.2f", sum));
     }
 }

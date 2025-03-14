@@ -1,5 +1,7 @@
 package model.entities;
 
+import model.exceptions.DomainException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -15,7 +17,11 @@ public class Reservation {
         //Vazio...
     }
 
-    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
+    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) throws DomainException {
+        if (!checkOut.after(checkIn)) {
+            throw new DomainException("Error in reservation: Check-out date nust be after check-in date.");
+        }
+
         this.roomNumber = roomNumber;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -45,17 +51,21 @@ public class Reservation {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
-    public void updateDates(Date checkIn, Date checkOut) {
+    //Adicionando "throws DomainException", é possivel lançar uma exceção para tratar em tal classe
+    public void updateDates(Date checkIn, Date checkOut) throws DomainException {
         Date now = new Date();
 
         //Blocos de verificação de erros
         if (checkIn.before(now) || checkOut.before(now)) {
-            //"Lançando" (forçando?) uma exceção (exceção: argumentos invalidos passados para o método)
-            throw new IllegalArgumentException("Reservation dates for update must be future dates.");
+            //"Lançando" (forçando?) uma exceção (Exceção: argumentos invalidos passados para o método)
+//            throw new IllegalArgumentException("Reservation dates for update must be future dates.");
+
+            //Lançando uma exceção para um tratamento personalido
+            throw new DomainException("Reservation dates for update must be future dates.");
         }
 
         if (!checkOut.after(checkIn)) {
-            throw new IllegalArgumentException("Check-out date nust be after check-in date.");
+            throw new DomainException("Check-out date nust be after check-in date.");
         }
 
         this.checkIn = checkIn;

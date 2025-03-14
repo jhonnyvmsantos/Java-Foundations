@@ -1,6 +1,7 @@
 package application;
 
 import model.entities.Reservation;
+import model.exceptions.DomainException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,8 +47,11 @@ public class Program {
         } catch (ParseException e) { //Capturando um possivel erro causado ao converter um formato de data
             //OBS: Tal erro é visivel nesta mesma classe, ao retirar essa captura
             System.out.println("Invalid date format.");
-        } catch (IllegalArgumentException e) { //Capturando um possivel erro causado por entrada de dados invalidas
-            //OBS: Tal verificação do erro está dentro da classe "Reservation"
+
+        //} catch (IllegalArgumentException e) { //Capturando um possivel erro causado por entrada de dados invalidas
+        //OBS: Tal verificação do erro está dentro da classe "Reservation"
+
+        } catch (DomainException e) {//Capturando um possivel erro com tratamento personalido na classe "DomainException"
 
             System.out.println("Error in reservation: " + e.getMessage());
             //Mostrando a mensagem personalizada criada para a ocorrência de tal erro na classe "Reservation" ^^^^
@@ -56,7 +60,7 @@ public class Program {
         sc.close();
     }
 
-    //"throws ParseException" diz que esse metodo NÃO trata de exceções, tendo permissão para lançar exceções não tratadas
+    //"throws ParseException" diz que esse metodo NÃO trata de exceções, tendo permissão para lançar exceções não tratadas em outra classe/metodo
 //    public static void main(String[] args) throws ParseException {
 //        //OBS: Ainda é possivel tratar tais exceções "propagadas" no método através de outros métodos que a chamem
 //

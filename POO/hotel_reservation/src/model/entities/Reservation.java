@@ -17,7 +17,8 @@ public class Reservation {
         //Vazio...
     }
 
-    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) throws DomainException {
+    //Ao tornar "DomainException" uma subclasse de "RuntimeException", não há necessidade de permissão para propagar uma exceção
+    public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
         if (!checkOut.after(checkIn)) {
             throw new DomainException("Error in reservation: Check-out date nust be after check-in date.");
         }
@@ -52,7 +53,7 @@ public class Reservation {
     }
 
     //Adicionando "throws DomainException", é possivel lançar uma exceção para tratar em tal classe
-    public void updateDates(Date checkIn, Date checkOut) throws DomainException {
+    public void updateDates(Date checkIn, Date checkOut) {
         Date now = new Date();
 
         //Blocos de verificação de erros

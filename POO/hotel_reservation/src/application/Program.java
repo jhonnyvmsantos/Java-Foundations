@@ -42,6 +42,8 @@ public class Program {
             reservation.updateDates(checkIn, checkOut);
             System.out.println("Reservation: " + reservation);
 
+            //Ao retirar as capturas de exceções lançadas, o programa quebra e desmontra a mensagem de erro
+            //OBS: Incluindo, as mensagens personalizadas criadas na classe "DomainException"
         } catch (InputMismatchException e) {
             System.out.println("Invalid room number.");
         } catch (ParseException e) { //Capturando um possivel erro causado ao converter um formato de data
@@ -55,6 +57,8 @@ public class Program {
 
             System.out.println("Error in reservation: " + e.getMessage());
             //Mostrando a mensagem personalizada criada para a ocorrência de tal erro na classe "Reservation" ^^^^
+        } catch (RuntimeException e) { //Captura para qualquer outro erro não listado
+            System.out.println("Unexpected Error.");
         }
 
         sc.close();

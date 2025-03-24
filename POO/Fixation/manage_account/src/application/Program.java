@@ -3,6 +3,7 @@ package application;
 import model.entities.Account;
 import model.exceptions.DomainException;
 
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -36,9 +37,11 @@ public class Program {
             double amount = sc.nextDouble();
             acc.withdraw(amount);
 
-            System.out.println(acc);
+            System.out.println("New " + acc.toString().toLowerCase());
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid data entry");
         } catch (DomainException e) {
-            System.out.println("Withdraw error: " + e.getMessage());
+            System.out.println(e.getMessage());
         } catch (RuntimeException e) {
             System.out.println("Unexpected Error.");
         }

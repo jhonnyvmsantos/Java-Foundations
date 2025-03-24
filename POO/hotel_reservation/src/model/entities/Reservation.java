@@ -20,7 +20,7 @@ public class Reservation {
     //Ao tornar "DomainException" uma subclasse de "RuntimeException", não há necessidade de permissão para propagar uma exceção
     public Reservation(Integer roomNumber, Date checkIn, Date checkOut) {
         if (!checkOut.after(checkIn)) {
-            throw new DomainException("Error in reservation: Check-out date nust be after check-in date.");
+            throw new DomainException("Check-out date nust be after check-in date.");
         }
 
         this.roomNumber = roomNumber;

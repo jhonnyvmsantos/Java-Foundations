@@ -8,6 +8,8 @@ public class Program {
 
         final String path = "C:\\temp\\in.txt"; //Caminho para um determinado arquivo ".txt"
 
+        writer();
+
         //UTILIZANDO DO FILEREADER E BUFFERREADER PARA LER "ARQUIVOS EXTERIORES" COM FECHAMENTO MANUAL ----------------
 
 //        FileReader fr = null; //"Stream" (Sequencia) de leitura de caracteres a partir de arquivos
@@ -17,7 +19,7 @@ public class Program {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) { //Iniciando o "bloco try" com recursos declarados
 
 //            fr = new FileReader(path); //Instanciando uma stream de leitura de um determinado arquivo
-//            br = new BufferedReader(fr); //Aprimorando a velocidade de leitura da stream
+//            br = new BufferedReader(fr); //Aprimorando a velocidade de leitura da stream com buffers
 
             String line = br.readLine(); //Lendo uma linha do arquivo (stream)
 
@@ -27,7 +29,7 @@ public class Program {
             }
 
         } catch (IOException e) {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         } //finally { //"finally" utilizado para "fechamento manual" dos "readers"
 //            try {
 //                if (br != null) {
@@ -66,27 +68,26 @@ public class Program {
 //        }
     }
 
-//    public static void main(String[] args) {
-//
-//        File file = new File("C:\\temp\\in.txt");
-//        Scanner sc = null;
-//
-//        try {
-//            sc = new Scanner(file);
-//
-//            while (sc.hasNextLine()) {
-//                System.out.println(sc.nextLine());
-//            }
-//
-//        } catch (FileNotFoundException e) { //Tal erro se refere a inexistencia do arquivo especificado
-//            System.out.println("Error opening file: " + e.getMessage());
-//        } finally {
-//            if (sc != null) {
-//                sc.close();
-//            }
-//
-//            System.out.println("Finally block executed.");
-//        }
-//
-//    }
+    public static void writer() {
+
+        String[] lines = new String[] {
+                "Good Morning", "Good afternoon", "Good Night"
+        };
+
+        String path = "C:\\temp\\out.txt";
+
+        //"FileWriter" - Stream de escrita de caracteres em arquivos | "BufferedWriter" - "FileWriter" mais rapido
+//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path))) { //Ambos criam/recriam o arquivo
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+            //Add "true" evita a recriação do arquivo, enquanto cria o arquivo caso não exista
+
+            for (String line : lines) { //Percorrendo o vetor de string
+                bw.write(line); //Escrevendo na ultima linha do arquivo
+                bw.newLine(); //Pulando uma linha
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
 }

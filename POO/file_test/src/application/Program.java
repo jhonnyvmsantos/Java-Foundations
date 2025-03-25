@@ -8,12 +8,16 @@ public class Program {
 
         final String path = "C:\\temp\\in.txt"; //Caminho para um determinado arquivo ".txt"
 
-        FileReader fr = null; //"Stream" (Sequencia) de leitura de caracteres a partir de arquivos
-        BufferedReader br = null; //"FileReader" mais rapido
+        //UTILIZANDO DO FILEREADER E BUFFERREADER PARA LER "ARQUIVOS EXTERIORES" COM FECHAMENTO MANUAL ----------------
 
-        try {
-            fr = new FileReader(path); //Instanciando uma stream de leitura de um determinado arquivo
-            br = new BufferedReader(fr); //Aprimorando a velocidade de leitura da stream
+//        FileReader fr = null; //"Stream" (Sequencia) de leitura de caracteres a partir de arquivos
+//        BufferedReader br = null; //"FileReader" mais rapido
+
+        //"try-with-recourses" - Permite a declaração de recursos pelo "bloco try" e garante seu encerramento no final
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) { //Iniciando o "bloco try" com recursos declarados
+
+//            fr = new FileReader(path); //Instanciando uma stream de leitura de um determinado arquivo
+//            br = new BufferedReader(fr); //Aprimorando a velocidade de leitura da stream
 
             String line = br.readLine(); //Lendo uma linha do arquivo (stream)
 
@@ -24,19 +28,22 @@ public class Program {
 
         } catch (IOException e) {
             System.out.println("Erro: " + e.getMessage());
-        } finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
+        } //finally { //"finally" utilizado para "fechamento manual" dos "readers"
+//            try {
+//                if (br != null) {
+//                    br.close();
+//                }
+//
+//                if (fr != null) {
+//                    fr.close();
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
 
-                if (fr != null) {
-                    fr.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
+        //UTILIZANDO DO SCANNER PARA LER UM "ARQUIVO EXTERIOR" -------------------------------------------------------
 
 //        //Classe utilizada para gerenciamento de arquivos
 //        File file = new File(path); //Instanciando uma variavel apontando para um arquivo do sistema

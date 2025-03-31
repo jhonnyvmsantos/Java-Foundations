@@ -8,7 +8,8 @@ public class Program {
 
         final String path = "C:\\temp\\in.txt"; //Caminho para um determinado arquivo ".txt"
 
-        writer();
+        folder();
+//        writer();
 
         //UTILIZANDO DO FILEREADER E BUFFERREADER PARA LER "ARQUIVOS EXTERIORES" COM FECHAMENTO MANUAL ----------------
 
@@ -89,5 +90,33 @@ public class Program {
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    public static void folder() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a folder path: ");
+        String strPath = sc.nextLine();
+
+        File path = new File(strPath); //OBS: Uma variavel tipo File pode, também, ser o caminho de uma pasta
+
+        //Em "listFiles(...)" é possivel alocar um função, como uma função lambda, para filtragem
+        File[] folders = path.listFiles(File::isDirectory); //Função que serve para listar apenas o que for diretorio (pasta)
+
+        System.out.println("Folders:");
+        if (folders != null) for (File folder : folders) {
+            System.out.println(folder);
+        }
+
+        File[] files = path.listFiles(File::isFile); //Função para listar apenas os arquivos do caminho
+        System.out.println("Files:");
+        if (files != null) for (File file : files) {
+            System.out.println(file);
+        }
+
+        boolean success = new File(strPath + "\\subdir").mkdir();
+        System.out.println(success ? "Directory created successfully." : "Failed to create directory.");
+
+        sc.close();
     }
 }

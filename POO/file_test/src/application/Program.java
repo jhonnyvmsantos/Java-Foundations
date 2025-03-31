@@ -5,12 +5,13 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-
-        final String path = "C:\\temp\\in.txt"; //Caminho para um determinado arquivo ".txt"
-
-        folder();
+//        reader();
+//        folder();
 //        writer();
+    }
 
+    public static void reader() {
+        final String path = "C:\\temp\\in.txt"; //Caminho para um determinado arquivo ".txt"
         //UTILIZANDO DO FILEREADER E BUFFERREADER PARA LER "ARQUIVOS EXTERIORES" COM FECHAMENTO MANUAL ----------------
 
 //        FileReader fr = null; //"Stream" (Sequencia) de leitura de caracteres a partir de arquivos
@@ -114,7 +115,9 @@ public class Program {
             System.out.println(file);
         }
 
+        //"mkdir()" cria um diretorio e retorna um boolean- Siga o exemplo abaixo
         boolean success = new File(strPath + "\\subdir").mkdir();
+        //OBS: Tal comando não recria a pasta, apenas a cria uma UNICA vez
         System.out.println(success ? "Directory created successfully." : "Failed to create directory.");
 
         sc.close();

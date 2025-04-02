@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+        dataCollect();
 //        reader();
 //        folder();
 //        writer();
@@ -119,6 +120,23 @@ public class Program {
         boolean success = new File(strPath + "\\subdir").mkdir();
         //OBS: Tal comando não recria a pasta, apenas a cria uma UNICA vez
         System.out.println(success ? "Directory created successfully." : "Failed to create directory.");
+
+        sc.close();
+    }
+    public static void dataCollect() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a file path: ");
+        String strPath = sc.nextLine();
+
+        File path = new File(strPath);
+
+        // C:\temp\in.txt
+
+        System.out.println("getName: " + path.getName()); //Método para pegar APENAS o nome do arquivo
+        System.out.println("getParent: " + path.getParent()); //Método para pegar APENAS o local do arquivo
+        System.out.println("getPath: " + path.getPath()); //Método para pegar TODO o caminho do arquivo
 
         sc.close();
     }

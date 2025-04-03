@@ -19,7 +19,7 @@ public class Program {
         System.out.printf("trim: - %s -\n", original.trim()); //Retirar espaços em brancos no começo ou fim da string
 
         System.out.printf("substring (No End): - %s -\n", original.substring(2)); //Recortar do caractere 2 adiante
-        System.out.printf("substring: - %s -\n", original.substring(2, 5)); //Recortar do caractere 2 até o 10
+        System.out.printf("substring: - %s -\n", original.substring(2, 5)); //Recortar do caractere 2 até o 5
         System.out.printf("replace: - %s -\n", original.replace(" ", "-")); //Trocar uma letra ou conjunt de letras por outro(s)
 
         System.out.printf("indexOf: - %s -\n", original.indexOf("a")); //Trazer o index da primeira aparição

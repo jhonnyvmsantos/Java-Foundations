@@ -1,5 +1,7 @@
 package model.entities;
 
+import java.io.*;
+
 public class Product {
     private String name;
     private Double price;
@@ -13,6 +15,16 @@ public class Product {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public void writer(String path, Boolean append) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, append))) {
+            bw.write(toString());
+            bw.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
     @Override

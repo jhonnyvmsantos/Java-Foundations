@@ -36,7 +36,7 @@ public class Program {
 
         if (success) {
             System.out.println("Directory created successfully.");
-            strPath += "\\summary.csv";
+            strPath += "\\itemList.csv";
         } else {
             throw new DomainException("Failed to create directory.");
         }
@@ -47,7 +47,7 @@ public class Program {
                 bw.newLine();
             }
 
-            System.out.println("Summary archive created and filled successfully.");
+            System.out.println("Item list archive created and filled successfully.");
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

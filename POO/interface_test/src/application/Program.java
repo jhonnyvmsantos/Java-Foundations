@@ -37,6 +37,8 @@ public class Program {
             System.out.print("Enter the price per day: ");
             double pricePerDay = sc.nextDouble();
 
+            //Embora na classe há um atributo de uma interface, por implementar tal interface, é possivel utilizar BrazilTaxServices
+            //... ou outra classe que implemente a interface
             RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxServices());
             rentalService.proccessInvoice(cr);
 

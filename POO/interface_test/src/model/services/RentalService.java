@@ -9,11 +9,11 @@ public class RentalService {
     private Double pricePerHour;
     private Double pricePerDay;
 
-    private BrazilTaxServices taxService;
+    private TaxService taxService;
 
     //OBS: Sem construtor vazio para obrigar a informar os argumentos no constructor
 
-    public RentalService(Double pricePerHour, Double pricePerDay, BrazilTaxServices taxService) {
+    public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
         this.pricePerHour = pricePerHour;
         this.pricePerDay = pricePerDay;
         this.taxService = taxService;
@@ -35,11 +35,11 @@ public class RentalService {
         this.pricePerDay = pricePerDay;
     }
 
-    public BrazilTaxServices getTaxService() {
+    public TaxService getTaxService() {
         return taxService;
     }
 
-    public void setTaxService(BrazilTaxServices taxService) {
+    public void setTaxService(TaxService taxService) {
         this.taxService = taxService;
     }
 

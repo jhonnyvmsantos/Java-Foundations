@@ -44,12 +44,13 @@ public class RentalService {
     }
 
     public void proccessInvoice(CarRental carRental) {
+        //Pegando a diferença de minutos entre dois instantes
         double minutes = Duration.between(carRental.getStart(), carRental.getFinish()).toMinutes();
-        double hours = minutes / 60;
+        double hours = minutes / 60; //convertendo a diferença em horas (fracionado)
 
         double basicPayment;
         if (hours <= 12) {
-            basicPayment = pricePerHour * Math.ceil(hours);
+            basicPayment = pricePerHour * Math.ceil(hours); //"Math.ceil()" arredonta o valor para cima
         } else  {
             basicPayment = pricePerDay * Math.ceil(hours / 24);
         }

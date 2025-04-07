@@ -1,5 +1,7 @@
 package model.entities;
 
+import model.exceptions.DomainException;
+
 import java.time.LocalDateTime;
 
 public class CarRental {
@@ -15,6 +17,15 @@ public class CarRental {
 
     //Não informar o "Invoice" no construtor, pois não haverá uma "conta" ainda...
     public CarRental(LocalDateTime start, LocalDateTime finish, Vehicle vehicle) {
+
+        if (start.equals(finish)) {
+            throw new DomainException("Dates cannot be identical.");
+        }
+
+        if (finish.isBefore(start)) {
+            throw new DomainException("Withdrawal cannot be prior to introduction.");
+        }
+
         this.start = start;
         this.finish = finish;
         this.vehicle = vehicle;
@@ -50,5 +61,14 @@ public class CarRental {
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Basic Payment: ").append(String.format("%.2f", getInvoice().getBasicPayment()));
+        sb.append("\nTax: ").append(String.format("%.2f", getInvoice().getTax()));
+        sb.append("\nTotal payment: ").append(String.format("%.2f", getInvoice().getTotalPayment()));
+
+        return sb.toString();
     }
 }

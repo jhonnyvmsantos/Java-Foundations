@@ -1,24 +1,24 @@
 package model.entities;
 
 public class Invoice {
-    private Double basicaPayment;
+    private Double basicPayment;
     private Double tax;
 
     public Invoice() {
         //Vazio...
     }
 
-    public Invoice(Double basicaPayment, Double tax) {
-        this.basicaPayment = basicaPayment;
+    public Invoice(Double basicPayment, Double tax) {
+        this.basicPayment = basicPayment;
         this.tax = tax;
     }
 
-    public Double getBasicaPayment() {
-        return basicaPayment;
+    public Double getBasicPayment() {
+        return basicPayment;
     }
 
-    public void setBasicaPayment(Double basicaPayment) {
-        this.basicaPayment = basicaPayment;
+    public void setBasicPayment(Double basicPayment) {
+        this.basicPayment = basicPayment;
     }
 
     public Double getTax() {
@@ -30,6 +30,6 @@ public class Invoice {
     }
 
     public double getTotalPayment() {
-        return this.getBasicaPayment() + this.getTax();
+        return this.getBasicPayment() + this.getTax();
     }
 }

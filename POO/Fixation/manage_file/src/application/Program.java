@@ -46,12 +46,12 @@ public class Program {
                 boolean success = Files.exists(Paths.get(path)) || new File(path.substring(0, 20)).mkdirs();
 
                 if (success) {
-                    boolean init = false;
+                    boolean init = true;
                     for (Product item : items) {
                         item.writer(path, init);
 
-                        if (!init) {
-                            init = true;
+                        if (init) {
+                            init = false;
                         };
                     }
                 } else {

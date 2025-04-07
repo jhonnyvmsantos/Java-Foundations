@@ -27,8 +27,12 @@ public class Product {
         }
     }
 
+    public double total() {
+        return this.price * this.quantity;
+    }
+
     @Override
     public String toString() {
-        return name + "," + String.format("%.2f", price * quantity);
+        return name + "," + String.format("%.2f", this.total());
     }
 }

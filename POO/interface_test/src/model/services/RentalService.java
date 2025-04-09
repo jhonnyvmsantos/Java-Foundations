@@ -9,14 +9,16 @@ public class RentalService {
     private Double pricePerHour;
     private Double pricePerDay;
 
-    private TaxService taxService;
+    private TaxService taxService; //Utilizando de uma interface para aceitar qualquer "classe" que a implementa
 
-    //OBS: Sem construtor vazio para obrigar a informar os argumentos no constructor
+    //OBS: Sem construtor vazio para obrigar a informar os argumentos na instanciação
 
+    //OBS: A seguir temos o chamado "Inversão de Controle" - Padrão de desenvolvimento que consiste em retirar da classe...
+    //... a responsabilidade de instanbcias suas dependencias
     public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
         this.pricePerHour = pricePerHour;
         this.pricePerDay = pricePerDay;
-        this.taxService = taxService;
+        this.taxService = taxService; //...
     }
 
     public Double getPricePerHour() {

@@ -40,9 +40,12 @@ public class Program {
             System.out.print("Enter the price per day: ");
             double pricePerDay = sc.nextDouble();
 
-            //Embora na classe há um atributo de uma interface, por implementar tal interface, é possivel utilizar BrazilTaxServices
+            //Embora na classe há um atributo de uma interface, por implementar tal interface, é possivel utilizar BrazilTaxServices...
             //... ou outra classe que implemente a interface
             RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxServices());
+            //Acima temos a "Injeção de depêndencia" - Consiste em inserir uma dependencia atraves de um componente...
+            //.. externo, como feito com o "BrazilTaxServices" que implementa a dependencia (Interface) TaxService
+
             rentalService.proccessInvoice(cr);
 
             System.out.println("Invoice:");

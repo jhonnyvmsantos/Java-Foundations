@@ -9,9 +9,15 @@ public class PayPalPayment implements OnlinePayment{
     private final double taxPerPayment = 0.02;
 
     @Override
+    public double preview(double total, int quantity, int index) {
+        double value = (total / quantity) * (this.monthlyInterest + index);
+
+        return value + (total * this.taxPerPayment);
+    }
+
+    @Override
     public void payment(Parcel parcel, double amount) {
-        final double tax = parcel.getValue() * this.taxPerPayment;
-        final double total = (parcel.getValue() * this.monthlyInterest) + tax;
+        final double total = parcel.getValue();
 
         if (amount < parcel.getValue()) {
             throw new DomainException("The amount transferred was not enough for the full settlement of the outstanding installment.");

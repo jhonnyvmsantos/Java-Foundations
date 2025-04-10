@@ -1,24 +1,25 @@
 package model.entities;
 
-import java.time.Instant;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
+import static model.services.DateFormat.dtFormat;
 
 public class Parcel {
-    private LocalDateTime expiration;
+    private LocalDate expiration;
     private Double value;
 
     private Status status = Status.WAITING;
 
-    public Parcel(LocalDateTime expiration, Double value) {
+    public Parcel(LocalDate expiration, Double value) {
         this.expiration = expiration;
         this.value = value;
     }
 
-    public LocalDateTime getExpiration() {
+    public LocalDate getExpiration() {
         return expiration;
     }
 
-    public void setExpiration(LocalDateTime expiration) {
+    public void setExpiration(LocalDate expiration) {
         this.expiration = expiration;
     }
 
@@ -36,5 +37,10 @@ public class Parcel {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return expiration.format(dtFormat) + " - $" + String.format("%.2f", value);
     }
 }

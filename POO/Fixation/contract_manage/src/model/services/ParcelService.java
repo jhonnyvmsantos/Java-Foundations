@@ -3,16 +3,18 @@ package model.services;
 import model.entities.Contract;
 import model.entities.Parcel;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ParcelService {
     private Integer quantity;
 
     private Contract contract;
+    private OnlinePayment onlinePayment;
 
-    public ParcelService(Integer quantity, Double valuePerParcel, Contract contract) {
+    public ParcelService(Integer quantity, Contract contract, OnlinePayment onlinePayment) {
         this.quantity = quantity;
         this.contract = contract;
+        this.onlinePayment = onlinePayment;
     }
 
     public Integer getQuantity() {
@@ -31,13 +33,21 @@ public class ParcelService {
         this.contract = contract;
     }
 
+    public OnlinePayment getOnlinePayment() {
+        return onlinePayment;
+    }
+
+    public void setOnlinePayment(OnlinePayment onlinePayment) {
+        this.onlinePayment = onlinePayment;
+    }
+
     public void parcelProcess() {
-        double valuePerParcel = contract.getTotal() / quantity;
-        LocalDateTime date = contract.getDate();
+        LocalDate date = contract.getDate();
+        double total = contract.getTotal();
 
         for (int i = 1; i <= this.quantity; i++) {
             date = date.plusMonths(i);
-            contract.addParcel(new Parcel(date, valuePerParcel));
+            contract.addParcel(new Parcel(date, onlinePayment.preview(total, this.quantity, i)));
         }
     }
 }

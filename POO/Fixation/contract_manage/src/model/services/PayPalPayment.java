@@ -10,9 +10,9 @@ public class PayPalPayment implements OnlinePayment{
 
     @Override
     public double preview(double total, int quantity, int index) {
-        double value = (total / quantity) * (this.monthlyInterest + index);
+        double value = total / quantity;
 
-        return value + (total * this.taxPerPayment);
+        return value + (value * (this.monthlyInterest * index)) + (value * this.taxPerPayment);
     }
 
     @Override

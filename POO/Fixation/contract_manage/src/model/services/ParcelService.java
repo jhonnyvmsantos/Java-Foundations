@@ -46,7 +46,7 @@ public class ParcelService {
         double total = contract.getTotal();
 
         for (int i = 1; i <= this.quantity; i++) {
-            date = date.plusMonths(i);
+            date = date.plusMonths(1);
             contract.addParcel(new Parcel(date, onlinePayment.preview(total, this.quantity, i)));
         }
     }

@@ -1,8 +1,8 @@
 package application;
 
 import model.entities.Contract;
-import model.entities.Parcel;
-import model.services.ParcelService;
+import model.entities.Installment;
+import model.services.InstallmentService;
 import model.services.PayPalPayment;
 
 import java.time.LocalDate;
@@ -38,11 +38,11 @@ public class Program {
             System.out.print("Number of installments: ");
             int quantity = sc.nextInt();
 
-            ParcelService parcelService = new ParcelService(quantity, contract, new PayPalPayment());
-            parcelService.parcelProcess();
+            InstallmentService installmentService = new InstallmentService(quantity, contract, new PayPalPayment());
+            installmentService.installmentProcess();
 
-            for (Parcel parcel : contract.getParcels()) {
-                System.out.println(parcel);
+            for (Installment installment : contract.getParcels()) {
+                System.out.println(installment);
             }
         } catch (DateTimeParseException e) {
             System.out.println("Invalid contract date.");

@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 import static model.services.DateFormat.dtFormat;
 
-public class Parcel {
+public class Installment {
     private LocalDate expiration;
     private Double value;
 
     private Status status = Status.WAITING;
 
-    public Parcel(LocalDate expiration, Double value) {
+    public Installment(LocalDate expiration, Double value) {
         this.expiration = expiration;
         this.value = value;
     }

@@ -8,7 +8,7 @@ public class Contract {
     private Integer number;
     private LocalDate date;
     private Double total;
-    private final List<Parcel> parcels = new ArrayList<>();
+    private final List<Installment> installments = new ArrayList<>();
 
     public Contract() {
         //Vazio...
@@ -44,15 +44,15 @@ public class Contract {
         this.total = total;
     }
 
-    public List<Parcel> getParcels() {
-        return parcels;
+    public List<Installment> getParcels() {
+        return installments;
     }
 
-    public void addParcel(Parcel parcel) {
-        this.parcels.add(parcel);
+    public void addParcel(Installment installment) {
+        this.installments.add(installment);
     }
 
-    public void removeParcel(Parcel parcel) {
-        this.parcels.remove(parcel);
+    public void removeParcel(Installment installment) {
+        this.installments.remove(installment);
     }
 }

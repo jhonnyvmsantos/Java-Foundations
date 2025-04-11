@@ -1,6 +1,6 @@
 package model.services;
 
-import model.entities.Parcel;
+import model.entities.Installment;
 import model.entities.Status;
 import model.exceptions.DomainException;
 
@@ -16,10 +16,10 @@ public class PayPalPayment implements OnlinePayment{
     }
 
     @Override
-    public void payment(Parcel parcel, double amount) {
-        final double total = parcel.getValue();
+    public void payment(Installment installment, double amount) {
+        final double total = installment.getValue();
 
-        if (amount < parcel.getValue()) {
+        if (amount < installment.getValue()) {
             throw new DomainException("The amount transferred was not enough for the full settlement of the outstanding installment.");
         } else if (amount < total) {
             throw new DomainException("The amount transferred was not included the fee for payment of 2% of the value of the installment.");
@@ -29,6 +29,6 @@ public class PayPalPayment implements OnlinePayment{
             throw new DomainException("The amount transferred exceeded the total amount of the installment.");
         }
 
-        parcel.setStatus(Status.PAY);
+        installment.setStatus(Status.PAY);
     }
 }

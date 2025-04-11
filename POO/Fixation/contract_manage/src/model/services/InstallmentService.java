@@ -42,13 +42,16 @@ public class InstallmentService {
     }
 
     public void installmentProcess() {
+        double basicQuota = contract.getTotal() / this.quantity;
         LocalDate date = contract.getDate();
-        double value = contract.getTotal() / this.quantity;
 
         for (int i = 1; i <= this.quantity; i++) {
             date = date.plusMonths(1);
-            double installment = onlinePayment.interest(value, i);
-            contract.addInstallment(new Installment(date, onlinePayment.fee(installment)));
+
+            double quota = basicQuota + onlinePayment.interest(basicQuota, i);
+            quota += onlinePayment.fee(quota);
+
+            contract.addInstallment(new Installment(date, quota));
         }
     }
 }

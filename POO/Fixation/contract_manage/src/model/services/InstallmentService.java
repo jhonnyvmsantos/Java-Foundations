@@ -43,11 +43,12 @@ public class InstallmentService {
 
     public void installmentProcess() {
         LocalDate date = contract.getDate();
-        double total = contract.getTotal();
+        double value = contract.getTotal() / this.quantity;
 
         for (int i = 1; i <= this.quantity; i++) {
             date = date.plusMonths(1);
-            contract.addParcel(new Installment(date, onlinePayment.preview(total, this.quantity, i)));
+            double installment = onlinePayment.interest(value, i);
+            contract.addInstallment(new Installment(date, onlinePayment.fee(installment)));
         }
     }
 }

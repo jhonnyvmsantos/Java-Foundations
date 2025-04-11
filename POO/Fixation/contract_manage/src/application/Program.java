@@ -41,7 +41,7 @@ public class Program {
             InstallmentService installmentService = new InstallmentService(quantity, contract, new PayPalPayment());
             installmentService.installmentProcess();
 
-            for (Installment installment : contract.getParcels()) {
+            for (Installment installment : contract.getInstallments()) {
                 System.out.println(installment);
             }
         } catch (DateTimeParseException e) {

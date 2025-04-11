@@ -44,15 +44,15 @@ public class Contract {
         this.total = total;
     }
 
-    public List<Installment> getParcels() {
+    public List<Installment> getInstallments() {
         return installments;
     }
 
-    public void addParcel(Installment installment) {
+    public void addInstallment(Installment installment) {
         this.installments.add(installment);
     }
 
-    public void removeParcel(Installment installment) {
+    public void removeInstallment(Installment installment) {
         this.installments.remove(installment);
     }
 }

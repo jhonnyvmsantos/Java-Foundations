@@ -8,15 +8,25 @@ public class PayPalPayment implements OnlinePayment{
     private final double monthlyInterest = 0.01;
     private final double taxPerPayment = 0.02;
 
-    @Override
-    public double preview(double total, int quantity, int index) {
-        double value = total / quantity;
+//    @Override
+//    public double preview(Double total, int quantity, int index) {
+//        double value = total / quantity;
+//
+//        return value + (value * (this.monthlyInterest * index)) + (value * this.taxPerPayment);
+//    }
 
-        return value + (value * (this.monthlyInterest * index)) + (value * this.taxPerPayment);
+    @Override
+    public double interest(Double amount, Integer months) {
+        return amount * (this.monthlyInterest * months);
     }
 
     @Override
-    public void payment(Installment installment, double amount) {
+    public double fee(Double amount) {
+        return amount * this.taxPerPayment;
+    }
+
+    @Override
+    public void payment(Installment installment, Double amount) {
         final double total = installment.getValue();
 
         if (amount < installment.getValue()) {

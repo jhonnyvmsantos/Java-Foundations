@@ -1,5 +1,6 @@
 package application;
 
+import entities.AbstractShape;
 import entities.Circle;
 import entities.Rectangle;
 import entities.Shape;
@@ -20,7 +21,9 @@ public class Program {
         int n = sc.nextInt();
 
         //Criando uma lista com um tipo abstrato (generico) para armazenar diferentes instancias de subclasses do tipo
-        List<Shape> shapes = new ArrayList<>();
+//        List<Shape> shapes = new ArrayList<>();
+
+        List<AbstractShape> shapes = new ArrayList<>();
 
         for (int i = 0; i <n; i++) {
             System.out.println("Shape #" + (i + 1) + " data:");
@@ -31,7 +34,7 @@ public class Program {
             System.out.print("Color (BLACK/BLUE/RED): ");
             Color color = Color.valueOf(sc.next());
 
-            if (ch == 'r') {
+            if (ch == 'r' || ch == 'R') {
                 System.out.print("Width: ");
                 double width = sc.nextDouble();
 
@@ -47,9 +50,10 @@ public class Program {
             }
         }
 
-        System.out.println("SHAPES AREAS:");
-        for (Shape e : shapes) {
-            System.out.printf("%.2f%n", e.area());
+        System.out.println("SHAPES COLOR AND AREAS:");
+        for (AbstractShape e : shapes) {
+            System.out.println("Color: " + e.getColor().toString());
+            System.out.printf("Area: %.2f%n", e.area());
         }
 
         sc.close();

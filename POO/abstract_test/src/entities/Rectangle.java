@@ -3,7 +3,7 @@ package entities;
 import entities.enums.Color;
 
 //Ao ter um metodo abstrado na superclass abstrada, é obrigatório a implementação de tal metodo
-public class Rectangle extends Shape{
+public class Rectangle extends AbstractShape {
     private Double width;
     private Double height;
 

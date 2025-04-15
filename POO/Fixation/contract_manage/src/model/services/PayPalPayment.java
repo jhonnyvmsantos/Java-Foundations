@@ -5,9 +5,6 @@ import model.entities.Status;
 import model.exceptions.DomainException;
 
 public class PayPalPayment implements OnlinePayment{
-    private final double monthlyInterest = 0.01;
-    private final double taxPerPayment = 0.02;
-
 //    @Override
 //    public double preview(Double total, int quantity, int index) {
 //        double value = total / quantity;
@@ -17,12 +14,12 @@ public class PayPalPayment implements OnlinePayment{
 
     @Override
     public double interest(Double amount, Integer months) {
-        return amount * (this.monthlyInterest * months);
+        return amount * (0.01 * months);
     }
 
     @Override
     public double fee(Double amount) {
-        return amount * this.taxPerPayment;
+        return amount * 0.02;
     }
 
     @Override
